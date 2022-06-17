@@ -1,8 +1,3 @@
-<?php 
-require "db.php";
-session_start();
-?>
-
 <!DOCTYPE html>
 <html lang="ru">
 
@@ -27,7 +22,20 @@ session_start();
                 <div class="push-left"> <a href="#" class="logo"><img src="assets/images/logo.svg" alt="Mptuld"></a>
                 </div>
 
-                <button class="catalog_btn"><i class="fa-solid fa-bars"></i> Каталог</button>
+                <button onclick="dropDownFunction()" class="catalog_btn dropbtn"><i class="fa-solid fa-bars"></i>
+                    Каталог </button>
+                <div id="myDropdown" class="dropdown-content">
+                    <a href="#">Стандартные запчасти <i class="fa-solid fa-chevron-right"></i> </a>
+                    <a href="#">Внешний тюнинг <i class="fa-solid fa-chevron-right"></i> </a>
+                    <a href="#">Двигатель <i class="fa-solid fa-chevron-right"></i> </a>
+                    <a href="#">Впускная система <i class="fa-solid fa-chevron-right"></i> </a>
+                    <a href="#">Выхлопная система <i class="fa-solid fa-chevron-right"></i> </a>
+                    <a href="#">Рулеове управление <i class="fa-solid fa-chevron-right"></i> </a>
+                    <a href="#">Подвеска <i class="fa-solid fa-chevron-right"></i> </a>
+                    <a href="#">Автомобильная оптика <i class="fa-solid fa-chevron-right"></i> </a>
+                    <a href="#">Автомобильная электроника <i class="fa-solid fa-chevron-right"></i> </a>
+                </div>
+
 
                 <div>
                     <input type="text" placeholder="Поиск" class="search-bar">
