@@ -43,6 +43,13 @@ function ChangeTheme() {
     Save(theme);
 }
 
+function Save(theme)
+{
+    var Request = new XMLHttpRequest();
+    Request.open("GET", "./themes.php?theme=" + theme, true); //У вас путь может отличаться
+    Request.send();
+}
+
 function dropDownFunction() {
     document.getElementById("myDropdown").classList.toggle("show");
 }
@@ -61,3 +68,4 @@ window.onclick = function(event) {
     }
   }
 }
+

@@ -1,3 +1,12 @@
+<?php
+session_start();
+
+if(!isset($_SESSION["theme"]))
+{
+    $_SESSION["theme"] = "light";
+}
+?>
+
 <!DOCTYPE html>
 <html lang="ru">
 
@@ -9,7 +18,7 @@
     <link rel="stylesheet" href="node_modules/slick-carousel/slick/slick.css">
     <link rel="stylesheet" href="node_modules/slick-carousel/slick/slick-theme.css">
     <link rel="stylesheet" href="assets/css/povarov.css">
-    <link rel="stylesheet" href="assets/css/styles(light).css" id="theme_link">
+    <link rel="stylesheet" type="text/css" href="assets/css/<?php echo $_SESSION["theme"];?>.css" id="theme_link">
 
     <title>Mptuld</title>
 </head>
