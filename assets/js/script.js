@@ -23,8 +23,8 @@ var btn = document.getElementById("change_theme");
 var link = document.getElementById("theme_link");
 btn.addEventListener("click", function () { ChangeTheme(); });
 function ChangeTheme() {
-    let lightTheme = "/assets/css/styles(light).css";
-    let blackTheme = "/assets/css/styles(black).css";
+    let lightTheme = "/assets/css/light.css";
+    let blackTheme = "/assets/css/black.css";
 
     var currTheme = link.getAttribute("href");
     var theme = "";
@@ -46,7 +46,7 @@ function ChangeTheme() {
 function Save(theme)
 {
     var Request = new XMLHttpRequest();
-    Request.open("GET", "./themes.php?theme=" + theme, true); //У вас путь может отличаться
+    Request.open("GET", "./themes.php?theme=" + theme, true);
     Request.send();
 }
 
