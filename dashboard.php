@@ -1,14 +1,18 @@
-<?php
-session_start();
+<?php 
+    session_start();
+  
+    if(!$_SESSION['id']){
+        header('location:login.php');
+    }
 
-if(!isset($_SESSION["theme"]))
+    if(!isset($_SESSION["theme"]))
 {
     $_SESSION["theme"] = "light";
 }
+    
 ?>
 
-<!DOCTYPE html>
-<html lang="ru">
+
 
 <head>
     <meta charset="UTF-8">
@@ -53,13 +57,13 @@ if(!isset($_SESSION["theme"]))
                 <button class="search_btn"><i class="fa-solid fa-magnifying-glass"></i> Найти</button>
 
                 <div class="push-right">
-                    <a href="login.php">Вход</a>
+                    <a href="#"><?php echo ucfirst($_SESSION['first_name']); ?></a>
                 </div>
                 <div>
                     <p style="font-weight:bold;">|</p>
                 </div>
                 <div>
-                    <a href="register.php">Регистрация</a>
+                    <a href="logout.php?logout=true">Выход</a>
                 </div>
             </nav>
 
