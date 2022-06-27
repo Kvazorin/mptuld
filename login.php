@@ -84,6 +84,7 @@ if(isset($_POST['submit']))
 				<button type="submit" name="submit" class="btn btn-primary">Войти</button>
 				
 				<a href="register.php" class="btn btn-primary">Регистрация</a>
+				<p class="pt-2"><a href="index.php">На главную</a></p>
 			</form>
 		</div>
 	</div>
