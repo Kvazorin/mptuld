@@ -104,10 +104,10 @@ if(!isset($_SESSION["theme"]))
         <!-- Main slider -->
         <div class="slider">
             <div class="slider-item">
-                <img src="assets/images/slider-item(1).jpg" alt="">
+                <img src="assets/images/slider-item(2).jpg" alt="">
             </div>
             <div class="slider-item">
-                <img src="assets/images/slider-item(2).jpg" alt="">
+                <img src="assets/images/slider-item(1).jpg" alt="">
             </div>
             <div class="slider-item">
                 <img src="assets/images/slider-item(3).jpg" alt="">

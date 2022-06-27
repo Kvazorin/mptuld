@@ -8,7 +8,7 @@
 }
 
 body {
-    background-color: #373737;
+    background-color: #1b1b1b;
 }
 
 #change_theme {
@@ -42,7 +42,7 @@ nav {
     padding: 14px;
     width: 866px;
     border: 1.2px solid #C5C5C5;
-    color: #919191;
+    color: #1b1b1b;
     border-radius: 10px;
     font-size: 18px;
     font-weight: bold;
@@ -61,7 +61,7 @@ nav a {
     padding: 15px;
     font-size: 16px;
     font-weight: bold;
-    color: #919191;
+    color: #b1b1b1;
     text-decoration: none;
 }
 
@@ -114,7 +114,7 @@ nav a:hover {
     border: 1.2px solid #2A5298;
     border-radius: 10px;
     font-size: 18px;
-    color: #919191;
+    color: #b1b1b1;
     font-weight: bold;
     background-color: #2A5298;
     margin: 0 25px;
@@ -212,6 +212,10 @@ footer a:hover {
 .footer_heading>p {
     font-size: 20px;
     margin-bottom: 25px;
+}
+
+.following>p, .footer_heading>p{
+    color: #b1b1b1;
 }
 
 .footer_heading>.fb_call {
