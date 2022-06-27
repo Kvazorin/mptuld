@@ -55,7 +55,7 @@ if(!isset($_SESSION["theme"]))
                 <div class="push-right">
                     <a href="login.php">Вход</a>
                 </div>
-                <div>
+                <div class="v-line">
                     <p style="font-weight:bold;">|</p>
                 </div>
                 <div>

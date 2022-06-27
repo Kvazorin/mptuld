@@ -1,6 +1,7 @@
 <?php 
     session_start();
-  
+
+    
     if(!$_SESSION['id']){
         header('location:login.php');
     }
@@ -59,7 +60,7 @@
                 <div class="push-right">
                     <a href="#"><?php echo ucfirst($_SESSION['first_name']); ?></a>
                 </div>
-                <div>
+                <div class="v-line">
                     <p style="font-weight:bold;">|</p>
                 </div>
                 <div>
