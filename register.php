@@ -110,26 +110,6 @@ if (isset($_POST['submit'])) {
             }
             ?>
             <form method="POST" action="<?php echo $_SERVER['PHP_SELF']; ?>">
-                <!-- <div class="form-group">
-            <label for="email">Имя пользователя:</label>
-            <input type="text" name="first_name" placeholder="Введите имя" class="form-control" value="<?php echo ($valFirstName ?? '') ?>">
-        </div>
-        <div class="form-group">
-            <label for="email">Фамилия пользователя:</label>
-            <input type="text" name="last_name" placeholder="Введите фамилию" class="form-control" value="<?php echo ($valLastName ?? '') ?>">
-        </div>
-        
-        <div class="form-group">
-            <label for="email">Email:</label>
-            <input type="text" name="email" placeholder="Email" class="form-control" value="<?php echo ($valEmail ?? '') ?>">
-        </div>
-        <div class="form-group">
-            <label for="email">Придумайте пароль:</label>
-            <input type="password" name="password" placeholder="Пароль" class="form-control" value="<?php echo ($valPassword ?? '') ?>">
-        </div>
-        
-        <button type="submit" name="submit" class="btn btn-primary">Зарегистрироваться</button>
-        <p class="pt-2"><a href="login.php">Вернуться ко входу</a></p> -->
 
                 <div class="f_header">
                     <p>Регистрация</p>
