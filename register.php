@@ -136,11 +136,11 @@ if (isset($_POST['submit'])) {
                 </div>
 
                 <div class="footer_heading">
-                    <label for="email">Имя пользователя:</label><br>
+                    <label for="email">Имя пользователя:</label>
                     <input type="text" name="first_name" placeholder="Введите имя" autocomplete="off" value="<?php echo ($valFirstName ?? '') ?>">
                 </div>
                 <div class="footer_heading">
-                    <label for="email">Фамилия пользователя:</label><br>
+                    <label for="email">Фамилия пользователя:</label>
                     <input type="text" name="last_name" placeholder="Введите фамилию" autocomplete="off" value="<?php echo ($valLastName ?? '') ?>">
                 </div>
                 <div class="footer_heading">

@@ -67,11 +67,11 @@ if (isset($_POST['submit'])) {
 				</div>
 
 				<div class="footer_heading">
-					<label for="email">Email:</label><br>
+					<label for="email">Email:</label>
 					<input type="text" name="email" placeholder="Email" autocomplete="off">
 				</div>
 				<div class="footer_heading">
-					<label for="email">Введите пароль:</label><br>
+					<label for="email">Введите пароль:</label>
 					<input type="password" name="password" placeholder="Пароль">
 				</div>
 
