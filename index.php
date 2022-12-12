@@ -59,7 +59,7 @@ if (!isset($_SESSION["theme"])) {
                     <p style="font-weight:bold;">|</p>
                 </div>
                 <div>
-                    <a href="register.php">Регистрация</a>
+                    <a href="php-handler/register.php">Регистрация</a>
                 </div>
             </nav>
 

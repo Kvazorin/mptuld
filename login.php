@@ -1,42 +1,9 @@
 <?php
-session_start();
-require_once('config.php');
 
 if (!isset($_SESSION["theme"])) {
 	$_SESSION["theme"] = "light";
 }
 
-if (isset($_POST['submit'])) {
-	if (isset($_POST['email'], $_POST['password']) && !empty($_POST['email']) && !empty($_POST['password'])) {
-		$email = trim($_POST['email']);
-		$password = trim($_POST['password']);
-
-		if (filter_var($email, FILTER_VALIDATE_EMAIL)) {
-			$sql = "select * from members where email = :email ";
-			$handle = $pdo->prepare($sql);
-			$params = ['email' => $email];
-			$handle->execute($params);
-			if ($handle->rowCount() > 0) {
-				$getRow = $handle->fetch(PDO::FETCH_ASSOC);
-				if (password_verify($password, $getRow['password'])) {
-					unset($getRow['password']);
-					$_SESSION = $getRow;
-					$_SESSION['access'] = TRUE;
-					header("location: http://127.0.0.1/dashboard.php");
-					exit();
-				} else {
-					$errors[] = "Неверный Email или Пароль";
-				}
-			} else {
-				$errors[] = "Неверный Email или Пароль";
-			}
-		} else {
-			$errors[] = "Неверный Email";
-		}
-	} else {
-		$errors[] = "Необходимо ввести Email и Пароль";
-	}
-}
 ?>
 
 <!doctype html>
@@ -54,22 +21,18 @@ if (isset($_POST['submit'])) {
 	<div class="container">
 		<div class="form-centered">
 
-			<?php
-			if (isset($errors) && count($errors) > 0) {
-				foreach ($errors as $error_msg) {
-					echo '<div class="alert_msg">' . $error_msg . '</div>';
-				}
-			}
-			?>
-
-			<form method="POST" action="<?php echo $_SERVER['PHP_SELF']; ?>">
+			<form action="php-handler/auth.php" method="POST">
 				<div class="f_header">
 					<p>Вход</p>
 				</div>
 
 				<div class="footer_heading">
+					<label for="email">Логин:</label>
+					<input type="text" name="login" placeholder="Введите логин" autocomplete="off">
+				</div>
+				<div class="footer_heading">
 					<label for="email">Email:</label>
-					<input type="text" name="email" placeholder="Email" autocomplete="off">
+					<input type="text" name="email" placeholder="Введите email" autocomplete="off">
 				</div>
 				<div class="footer_heading">
 					<label for="email">Введите пароль:</label>
@@ -77,8 +40,8 @@ if (isset($_POST['submit'])) {
 				</div>
 
 
-				<button type="submit" name="submit" class="form_btn">Войти</button>
-				<button class="form_btn"><a href="register.php">Регистрация</a></button>
+				<button type="submit" type="submit" class="form_btn">Войти</button>
+				<button class="form_btn"><a href="php-handler/register.php">Регистрация</a></button>
 
 				<div class="go_back">
 					<a href="index.php" class="go_back"><i class="fa-solid fa-chevron-left"></i> На Главную </a>
@@ -86,6 +49,9 @@ if (isset($_POST['submit'])) {
 
 			</form>
 
+			<?php if (isset($_GET['error'])) : ?>
+				<p>Неверный пароль</p>
+			<?php endif; ?>
 
 		</div>
 	</div>
