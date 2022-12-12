@@ -1,15 +1,15 @@
 <?php
 session_start();
-require_once('config.php');
+include('config.php');
 
 if (!isset($_SESSION["theme"])) {
     $_SESSION["theme"] = "light";
 }
 
 if (isset($_POST['submit'])) {
-    if (isset($_POST['first_name'], $_POST['last_name'], $_POST['email'], $_POST['password']) && !empty($_POST['first_name']) && !empty($_POST['last_name']) && !empty($_POST['email']) && !empty($_POST['password'])) {
+    if (isset($_POST['first_name'], $_POST['phone'], $_POST['email'], $_POST['password']) && !empty($_POST['first_name']) && !empty($_POST['phone']) && !empty($_POST['email']) && !empty($_POST['password'])) {
         $firstName = trim($_POST['first_name']);
-        $lastName = trim($_POST['last_name']);
+        $phone = trim($_POST['phone']);
         $email = trim($_POST['email']);
         $password = trim($_POST['password']);
 
@@ -24,13 +24,13 @@ if (isset($_POST['submit'])) {
             $stmt->execute($p);
 
             if ($stmt->rowCount() == 0) {
-                $sql = "insert into members (first_name, last_name, email, `password`, created_at,updated_at) values(:fname,:lname,:email,:pass,:created_at,:updated_at)";
+                $sql = "insert into members (first_name, phone, email, `password`, created_at,updated_at) values(:fname,:phone,:email,:pass,:created_at,:updated_at)";
 
                 try {
                     $handle = $pdo->prepare($sql);
                     $params = [
                         ':fname' => $firstName,
-                        ':lname' => $lastName,
+                        ':phone' => $phone,
                         ':email' => $email,
                         ':pass' => $hashPassword,
                         ':created_at' => $date,
@@ -40,12 +40,13 @@ if (isset($_POST['submit'])) {
                     $handle->execute($params);
 
                     $success = 'Пользователь был успешно создан';
+                    header("refresh:2; url=http://127.0.0.1/login.php");
                 } catch (PDOException $e) {
                     $errors[] = $e->getMessage();
                 }
             } else {
                 $valFirstName = $firstName;
-                $valLastName = $lastName;
+                $valPhone = $phone;
                 $valEmail = '';
                 $valPassword = $password;
 
@@ -60,10 +61,10 @@ if (isset($_POST['submit'])) {
         } else {
             $valFirstName = $_POST['first_name'];
         }
-        if (!isset($_POST['last_name']) || empty($_POST['last_name'])) {
-            $errors[] = 'Необходима фамилия пользователя';
+        if (!isset($_POST['phone']) || empty($_POST['phone'])) {
+            $errors[] = 'Необходим номер телефона пользователя';
         } else {
-            $valLastName = $_POST['last_name'];
+            $valPhone = $_POST['phone'];
         }
 
         if (!isset($_POST['email']) || empty($_POST['email'])) {
@@ -80,7 +81,6 @@ if (isset($_POST['submit'])) {
     }
 }
 ?>
-
 
 <!doctype html>
 <html>
@@ -120,9 +120,10 @@ if (isset($_POST['submit'])) {
                     <input type="text" name="first_name" placeholder="Введите имя" autocomplete="off" value="<?php echo ($valFirstName ?? '') ?>">
                 </div>
                 <div class="footer_heading">
-                    <label for="email">Фамилия пользователя:</label>
-                    <input type="text" name="last_name" placeholder="Введите фамилию" autocomplete="off" value="<?php echo ($valLastName ?? '') ?>">
+                    <label for="email">Номер телефона:</label>
+                    <input type="text" name="phone" placeholder="Введите номер телефона" autocomplete="off" value="<?php echo ($valPhone ?? '') ?>">
                 </div>
+
                 <div class="footer_heading">
                     <label for="email">Email:</label>
                     <input type="text" name="email" placeholder="Email" autocomplete="off" value="<?php echo ($valEmail ?? '') ?>">

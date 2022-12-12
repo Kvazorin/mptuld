@@ -1,8 +1,7 @@
 <?php
 session_start();
 
-if(!isset($_SESSION["theme"]))
-{
+if (!isset($_SESSION["theme"])) {
     $_SESSION["theme"] = "light";
 }
 ?>
@@ -18,7 +17,8 @@ if(!isset($_SESSION["theme"]))
     <link rel="stylesheet" href="node_modules/slick-carousel/slick/slick.css">
     <link rel="stylesheet" href="node_modules/slick-carousel/slick/slick-theme.css">
     <link rel="stylesheet" href="assets/css/povarov.css">
-    <link rel="stylesheet" type="text/css" href="assets/css/<?php echo $_SESSION["theme"];?>.css" id="theme_link">
+    <link rel="stylesheet" type="text/css" href="assets/css/<?php echo $_SESSION["theme"]; ?>.css" id="theme_link">
+
 
     <title>Mptuld</title>
 </head>

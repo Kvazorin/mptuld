@@ -21,7 +21,8 @@ if (isset($_POST['submit'])) {
 				if (password_verify($password, $getRow['password'])) {
 					unset($getRow['password']);
 					$_SESSION = $getRow;
-					header('location:dashboard.php');
+					$_SESSION['access'] = TRUE;
+					header("location: http://127.0.0.1/dashboard.php");
 					exit();
 				} else {
 					$errors[] = "Неверный Email или Пароль";
@@ -80,7 +81,7 @@ if (isset($_POST['submit'])) {
 				<button class="form_btn"><a href="register.php">Регистрация</a></button>
 
 				<div class="go_back">
-					<a href="index.php" class="go_back"><i class="fa-solid fa-chevron-left"></i> На Главную  </a>
+					<a href="index.php" class="go_back"><i class="fa-solid fa-chevron-left"></i> На Главную </a>
 				</div>
 
 			</form>

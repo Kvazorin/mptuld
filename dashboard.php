@@ -1,19 +1,19 @@
-<?php 
-    session_start();
+<?php
+session_start();
 
-    
-    if(!$_SESSION['id']){
-        header('location:login.php');
-    }
+if (!isset($_SESSION['access'])) {
+    echo 'У вас нет доступа к этой странице, для того, чтобы его получить, <a href="login.php">авторизуйтесь</a>.';
 
-    if(!isset($_SESSION["theme"]))
-{
+    exit(0);
+}
+
+unset($_SESSION['access']);
+
+if (!isset($_SESSION["theme"])) {
     $_SESSION["theme"] = "light";
 }
-    
+
 ?>
-
-
 
 <head>
     <meta charset="UTF-8">
@@ -23,7 +23,7 @@
     <link rel="stylesheet" href="node_modules/slick-carousel/slick/slick.css">
     <link rel="stylesheet" href="node_modules/slick-carousel/slick/slick-theme.css">
     <link rel="stylesheet" href="assets/css/povarov.css">
-    <link rel="stylesheet" type="text/css" href="assets/css/<?php echo $_SESSION["theme"];?>.css" id="theme_link">
+    <link rel="stylesheet" type="text/css" href="assets/css/<?php echo $_SESSION["theme"]; ?>.css" id="theme_link">
 
     <title>Mptuld</title>
 </head>
